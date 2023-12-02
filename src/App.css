@@ -62,8 +62,13 @@ body {
   .nav_container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
     margin: 0 3rem;
     width: 100%;
+
+    @media screen and (max-width:425px){
+      margin: 0 8px;
+    }
   }
 }
 

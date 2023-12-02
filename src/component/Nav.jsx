@@ -69,7 +69,7 @@ export const Nav = () => {
               placeholder="search products"
               onChange={handleOnChange}
             />
-            <button className="button">Search</button>
+            {/* <button className="button">Search</button> */}
           </div>
         </div>
       </nav>
