@@ -40,6 +40,31 @@ export const ProductDetails = () => {
                   <p className="category">{product.category}</p>
                 </div>
                 <p className="description">{product.description}</p>
+                <div className="offer_list">
+                  <p>
+                    <i class="fa-solid fa-tag"></i>
+                    <b> Bank Offer </b>
+                    10% off on HDFC Bank Credit Card EMI Transactions, up to
+                    &#36;2 on orders of &#36;100 and aboveT&C
+                  </p>
+                  <p>
+                    <i class="fa-solid fa-tag"></i>
+                    <b> Bank Offer </b>
+                    Extra &#36;2 off on HDFC Bank Credit Card EMI on 6 months
+                    and above tenure, Min. Product Value &#36;240T&C
+                  </p>
+                  <p>
+                    <i class="fa-solid fa-tag"></i>
+                    <b> Bank Offer </b>
+                    Extra &#36;7 off on HDFC Bank Credit Card EMI on 9 months
+                    and above tenure, Min. Product Value &#36;50T&C
+                  </p>
+                  <p>
+                    <i class="fa-solid fa-tag"></i>
+                    <b> Bank Offer </b>
+                    Get extra &#36;4off (price inclusive of cashback/coupon)T&C
+                  </p>
+                </div>
               </div>
             </div>
           </div>

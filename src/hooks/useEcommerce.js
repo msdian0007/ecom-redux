@@ -1,10 +1,14 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setCartItems } from '../store/products/reducer';
+import { useEffect } from 'react';
 
 export const useEcommerce = () => {
     const dispatch = useDispatch();
-    let oldCartItems = JSON.parse(localStorage.getItem("cart"));
+    const { cartItems } = useSelector((state) => state.productsReducer)
+    let oldCartItems = JSON.parse( localStorage.getItem("cart"));
+    useEffect(() => {
+    }, [cartItems])
 
     return {
         addToCart: (id) => {

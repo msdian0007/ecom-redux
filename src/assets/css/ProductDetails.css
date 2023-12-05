@@ -1,6 +1,6 @@
 .product_container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   margin: 2rem 0;
   gap: 1rem;
 
@@ -16,7 +16,7 @@
       "img img desc desc desc"
       "action action desc desc desc";
 
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, 1fr);
     /* grid-template-rows: 125px 25px 30px 40px; */
 
     .img_container {
@@ -24,21 +24,22 @@
       background-color: #ffff;
       border: 0.1rem solid #bbbb;
       margin-right: 2rem;
+      padding: 2rem;
 
       .img {
         justify-self: center;
-        max-width: 325px;
-        max-height: 325px;
+        max-width: 300px;
+        max-height: 300px;
         object-fit: contain;
         cursor: pointer;
-        padding: 2rem 0;
+        /* padding: 2rem 0; */
       }
 
       .action_buttons {
         grid-area: action;
         display: flex;
         gap: 1rem;
-        padding-bottom: 1rem;
+        padding-top: 1rem;
         justify-content: center;
 
         .buy_button,
@@ -53,7 +54,7 @@
           &:hover {
             background-color: var(--secondary);
             color: var(--dark);
-            font-weight: 600;
+            /* font-weight: 600; */
           }
         }
 
@@ -74,13 +75,11 @@
       grid-area: desc;
 
       .title {
-        grid-area: title;
         font-size: 1.5rem;
         text-align: start;
       }
 
       .price_cat {
-        grid-area: price;
         display: flexbox;
         padding: 8px 0;
         /* justify-content: space-between; */
@@ -92,16 +91,53 @@
         }
 
         .category {
-          grid-area: catgegory;
           text-align: start;
           font-size: 14px;
           color: var(--primary);
         }
       }
       .description {
+        font-size: 14px;
         text-align: start;
         line-height: 20px;
       }
+
+      .offer_list {
+        padding: 10px 0;
+        font-size: 14px;
+        > p {
+          text-align: start;
+        }
+      }
     }
+  }
+  @media screen and (max-width: 768px) {
+    .card {
+      grid-template-areas:
+        "img img img img img"
+        "img img img img img"
+        "img img img img img"
+        "action action action action action"
+        "desc desc desc desc desc";
+
+      .img_container {
+        margin: 0;
+      }
+
+      .details {
+        .title,
+        .price_cat > .price,
+        .price_cat > .category,
+        .description {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding: 0 1rem;
   }
 }
