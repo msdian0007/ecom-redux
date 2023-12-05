@@ -9,16 +9,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-align: center;
 }
 
 body {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
+}
 
-  a {
-    text-decoration: none;
-    color: black;
-  }
+a {
+  text-decoration: none;
+  color: black;
 }
 
 .center_div {
@@ -66,7 +67,7 @@ body {
     margin: 0 3rem;
     width: 100%;
 
-    @media screen and (max-width:425px){
+    @media screen and (max-width: 425px) {
       margin: 0 8px;
     }
   }
@@ -148,7 +149,7 @@ body {
   }
 }
 
-main {
+.main {
   grid-area: main;
   padding: 0 3rem;
   background-color: var(--light);
@@ -225,6 +226,8 @@ main {
   }
 }
 
+
+
 .no_product_title {
   justify-self: center;
   grid-column: 1/-1;
@@ -236,26 +239,27 @@ main {
 
 .cart_items {
   position: absolute;
-  top: 3rem;
+  top: 42px;
   left: 0px;
-  padding: 10px;
+  padding: 16px;
   background-color: var(--dark);
-  height: 400px;
-  width: 325px;
+  max-height: 400px;
+  min-width: 325px;
   overflow-y: scroll;
   transition-property: visibility;
   visibility: hidden;
   transition-delay: 500ms;
-  box-shadow: 10px 10px 40px var(--dark);
+  box-shadow: 0 10px 40px 5px var(--dark);
 
   .cart_card {
     display: grid;
     grid-template-areas: "img title" "img price";
     grid-template-columns: 75px 1fr;
     margin: 0.3rem 0.8rem;
-    padding: 0.5rem;
+    padding: 16px 8px;
     background-color: white;
     position: relative;
+    border-radius: 4px;
     /* border-bottom: .1rem solid var(--dark); */
 
     .cart_img {
@@ -263,12 +267,17 @@ main {
       width: 75px;
       height: 75px;
       object-fit: contain;
+      padding: 0 6px;
     }
 
     .cart_title {
       grid-area: title;
       align-self: flex-end;
       border-bottom: 0.1rem solid var(--dark);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
     }
 
     .cart_price {
@@ -292,6 +301,11 @@ main {
         color: orangered;
       }
     }
+  }
+  .empty_cart_title {
+    color: #ffff;
+    display: flex;
+    place-content: center;
   }
 }
 

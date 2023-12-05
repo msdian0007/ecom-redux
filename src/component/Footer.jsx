@@ -3,7 +3,7 @@ export const Footer = () => {
     return (
         <>
             <footer>
-                <span>&#169; Mohasin Attar(S6596)</span>
+                <i>made with &#x1F49B; by &#127809;</i>
             </footer>
         </>
     )

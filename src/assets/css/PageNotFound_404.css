@@ -1,0 +1,19 @@
+.not-found-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 9rem);
+
+  .not_found_card {
+    > h1 {
+      font-size: 3em;
+      color: #ff4500;
+    }
+
+    > p {
+      font-size: 1.2em;
+      color: #333;
+    }
+  }
+}

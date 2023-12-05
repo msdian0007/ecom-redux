@@ -1,0 +1,107 @@
+.product_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin: 2rem 0;
+  gap: 1rem;
+
+  .card {
+    padding: 1rem;
+    margin: 0 auto;
+    display: grid;
+    /* background-color: white; */
+    grid-template-areas:
+      "img img desc desc desc"
+      "img img desc desc desc"
+      "img img desc desc desc"
+      "img img desc desc desc"
+      "action action desc desc desc";
+
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* grid-template-rows: 125px 25px 30px 40px; */
+
+    .img_container {
+      grid-area: img;
+      background-color: #ffff;
+      border: 0.1rem solid #bbbb;
+      margin-right: 2rem;
+
+      .img {
+        justify-self: center;
+        max-width: 325px;
+        max-height: 325px;
+        object-fit: contain;
+        cursor: pointer;
+        padding: 2rem 0;
+      }
+
+      .action_buttons {
+        grid-area: action;
+        display: flex;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        justify-content: center;
+
+        .buy_button,
+        .cart_button {
+          font-size: 1rem;
+          border: none;
+          padding: 12px 24px;
+          color: var(--light);
+          cursor: pointer;
+          transition: all 300ms;
+
+          &:hover {
+            background-color: var(--secondary);
+            color: var(--dark);
+            font-weight: 600;
+          }
+        }
+
+        .buy_button {
+          border-radius: 0.2rem;
+          background-color: var(--primary);
+        }
+
+        .cart_button {
+          border: 0.1rem solid #bbbb;
+          background-color: #ffff;
+          color: #bbbb;
+        }
+      }
+    }
+
+    .details {
+      grid-area: desc;
+
+      .title {
+        grid-area: title;
+        font-size: 1.5rem;
+        text-align: start;
+      }
+
+      .price_cat {
+        grid-area: price;
+        display: flexbox;
+        padding: 8px 0;
+        /* justify-content: space-between; */
+
+        .price {
+          font-size: 1.2rem;
+          text-align: start;
+          color: var(--secondary);
+        }
+
+        .category {
+          grid-area: catgegory;
+          text-align: start;
+          font-size: 14px;
+          color: var(--primary);
+        }
+      }
+      .description {
+        text-align: start;
+        line-height: 20px;
+      }
+    }
+  }
+}

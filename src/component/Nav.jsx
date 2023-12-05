@@ -1,21 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setCartItems, setFilteredItems } from "../store/products/reducer";
+import { useEffect } from "react";
+import { getProducts } from "../store/products/thunk";
+import { useEcommerce } from "../hooks/useEcommerce";
 
 export const Nav = () => {
   const dispatch = useDispatch();
   const { products, cartItems, allProducts } = useSelector(
     (state) => state.productsReducer
   );
-
-  const oldCartItems = JSON.parse(localStorage.getItem("cart"));
-
-  const removeCartItem = (id) => {
-    const newCartItems = oldCartItems?.filter((pid) => pid !== id);
-    if (newCartItems?.length > 0) {
-      localStorage.setItem("cart", JSON.stringify(newCartItems));
-      dispatch(setCartItems(newCartItems));
-    }
-  };
+  const { removeCartItem } = useEcommerce();
 
   let cartItemsView;
   if (cartItems?.length > 0) {
@@ -35,6 +29,8 @@ export const Nav = () => {
         </div>
       );
     });
+  } else {
+    cartItemsView = <span className="empty_cart_title">Cart is empty!</span>;
   }
 
   const handleOnChange = (e) => {
@@ -58,7 +54,9 @@ export const Nav = () => {
         <div className="nav_container">
           <div className="nav_actions">
             <i className="fa-solid fa-cart-shopping cart_icon"></i>
-            <span className="cart_badge">{cartItems?.length}</span>
+            {cartItems?.length > 0 && (
+              <span className="cart_badge">{cartItems?.length}</span>
+            )}
             <div className="cart_items">{cartItemsView}</div>
           </div>
           <div className="nav_search center_div">
