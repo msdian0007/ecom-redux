@@ -1,6 +1,6 @@
 .product_container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, 1fr);
   margin: 2rem 0;
   gap: 1rem;
 
@@ -28,8 +28,8 @@
 
       .img {
         justify-self: center;
-        max-width: 300px;
-        max-height: 300px;
+        max-width: 350px;
+        max-height: 350px;
         object-fit: contain;
         cursor: pointer;
         /* padding: 2rem 0; */

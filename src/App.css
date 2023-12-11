@@ -130,7 +130,8 @@ a {
   gap: 5px;
 
   .search_input {
-    min-width: 15rem;
+    text-align: start;
+    min-width: 300px;
     outline: none;
     border: 0;
     min-height: 1.7rem;
@@ -146,6 +147,12 @@ a {
     border-radius: 0.2rem;
     background-color: var(--dark);
     color: var(--light);
+  }
+
+  @media screen and (max-width: 425px) {
+    .search_input {
+      min-width: auto;
+    }
   }
 }
 
@@ -174,6 +181,7 @@ a {
       "button button";
     grid-template-columns: repeat(auto-fit, minmax(0, 150px));
     grid-template-rows: 125px 25px 30px 40px;
+    max-width: 275px;
 
     .cart_button {
       grid-area: button;
@@ -225,8 +233,6 @@ a {
     }
   }
 }
-
-
 
 .no_product_title {
   justify-self: center;

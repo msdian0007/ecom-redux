@@ -19,18 +19,20 @@ const productsReducer = createSlice({
             state.products = payload
         }
     },
-    extraReducers: {
-        [getProducts.pending]: (state) => {
-            state.loading = true
-        },
-        [getProducts.fulfilled]: (state, { payload }) => {
-            state.loading = false
-            state.allProducts = payload
-            state.products = payload
-        },
-        [getProducts.rejected]: (state, { payload }) => {
-            state.loading = false
-        }
+    extraReducers: (builder) => {
+        builder
+            .addCase(getProducts.pending, (state) => {
+                state.loading = true
+            })
+            .addCase(getProducts.fulfilled, (state, { payload }) => {
+                state.loading = false
+                state.allProducts = payload
+                state.products = payload
+            })
+            .addCase(getProducts.rejected, (state) => {
+                state.loading = false
+            })
+
     }
 })
 

@@ -1,15 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
-import { setCartItems, setFilteredItems } from "../store/products/reducer";
-import { useEffect } from "react";
-import { getProducts } from "../store/products/thunk";
+import { setFilteredItems } from "../store/products/reducer";
 import { useEcommerce } from "../hooks/useEcommerce";
 
 export const Nav = () => {
   const dispatch = useDispatch();
-  const { products, cartItems, allProducts } = useSelector(
+  const { products, cartItems } = useSelector(
     (state) => state.productsReducer
   );
-  const { removeCartItem } = useEcommerce();
+  const { removeCartItem, debounce, productSearch } = useEcommerce();
 
   let cartItemsView;
   if (cartItems?.length > 0) {
@@ -33,20 +31,7 @@ export const Nav = () => {
     cartItemsView = <span className="empty_cart_title">Cart is empty!</span>;
   }
 
-  const handleOnChange = (e) => {
-    let { value } = e.target;
-    const SearchedProduct = allProducts.filter((prod) => {
-      return Object.values(prod)
-        .join(" ")
-        .toLowerCase()
-        .includes(value.toLowerCase());
-    });
-    if (SearchedProduct.length > 0) {
-      dispatch(setFilteredItems(SearchedProduct));
-    } else {
-      dispatch(setFilteredItems([]));
-    }
-  };
+  const handleOnChange = debounce(productSearch)
 
   return (
     <>
@@ -65,7 +50,7 @@ export const Nav = () => {
               id="search_input"
               className="search_input"
               placeholder="search products"
-              onChange={handleOnChange}
+              onChange={(e) => handleOnChange(e.target.value)}
             />
             {/* <button className="button">Search</button> */}
           </div>

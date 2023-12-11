@@ -4,7 +4,7 @@ import "../assets/css/ProductDetails.css";
 import { useGetProduct } from "../hooks/useGetProduct";
 import { useEcommerce } from "../hooks/useEcommerce";
 
-export const ProductDetails = () => {
+const ProductDetails = () => {
   const { id } = useParams();
   const { loading, product, getProductById } = useGetProduct();
   const { addToCart } = useEcommerce();
@@ -27,7 +27,7 @@ export const ProductDetails = () => {
                   </button>
                   <button
                     className="buy_button"
-                    // onClick={() => addToCart(product.id)}
+                  // onClick={() => addToCart(product.id)}
                   >
                     BUY NOW
                   </button>
@@ -82,4 +82,7 @@ export const ProductDetails = () => {
       <section className="main">{productView}</section>
     </>
   );
+
 };
+
+export default ProductDetails
