@@ -62,7 +62,7 @@ Start the development server:
 npm start
 ```
 
-Open your browser and go to [http://localhost:3000](http://localhost:3000) to view the app.
+Open your browser and go to [http://localhost:5173/ecom-redux/](http://localhost:5173/ecom-redux/) to view the app.
 
 ## Contributing
 
