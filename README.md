@@ -11,7 +11,6 @@ Welcome to our Simple E-Commerce Web App! This web application is built using Re
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Getting Started
 
